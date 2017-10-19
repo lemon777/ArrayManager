@@ -19,7 +19,7 @@ class ArrayManager {
 	private $data_array;
 
 	public function __construct(array & $data_array) {
-		ArrayManage\Validator::validateArray($data_array);
+		//ArrayManage\Validator::validateArray($data_array);
 		$this->data_array = & $data_array;
 	}
 
