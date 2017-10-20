@@ -29,7 +29,13 @@ class Update extends Search {
 	public function execute() {
 		foreach ($this->getResults() as $key => $val) {
 			foreach ($this->update_array as $_key => $_val) {
-				$this->data_array[$key][$_key] = $_val;
+				if (substr($_val, 0, 1) === '+'){
+				    $this->data_array[$key][$_key] += (int)substr($_val, 1);
+				} elseif (substr($_val, 0, 1) === '-') {
+				    $this->data_array[$key][$_key] -= (int)substr($_val, 1);
+				} else {
+				    $this->data_array[$key][$_key] = $_val;
+				}
 			}
 		}
 	}
